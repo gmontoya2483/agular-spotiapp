@@ -34,7 +34,9 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class SpotifyService {
 
-  constructor() { }
+  constructor() {
+      console.log ('Servicio Spotify Listo');
+     }
 
 }
 ```
@@ -64,4 +66,27 @@ export class AppModule { }
 
 ```
 
+### 3. Ejecutar el servicio
+
+Se debe pasar la referencia al servicio en el constructor del componente que va a utilizar el servicio.  
+
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { SpotifyService } from "../../services/spotify.service";
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styles: []
+})
+export class SearchComponent implements OnInit {
+
+  constructor(public _spotify: SpotifyService) { }
+
+  ngOnInit() {
+  }
+
+}
+```
 
